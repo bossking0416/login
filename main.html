@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>메인</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    .box img {
+      width: 280px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .box h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background: black;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <img src="photo.png" alt="사진">
+    <h2>섹현리 하트 촉수
+    </h2>
+    <button onclick="logout()">로그아웃</button>
+  </div>
+
+  <script>
+    // 🔒 로그인 안 했으면 접근 차단
+    const user = localStorage.getItem("loginUser");
+    if (!user) {
+      alert("로그인이 필요합니다");
+      location.href = "login.html";
+    }
+
+    function logout() {
+      localStorage.removeItem("loginUser");
+      location.href = "login.html";
+    }
+  </script>
+
+</body>
+</html>
